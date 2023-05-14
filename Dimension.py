@@ -4,7 +4,7 @@ from pyspark.sql import SparkSession
 spark = SparkSession.builder.appName("covid_analysis").enableHiveSupport().getOrCreate()
 
 # Load the total_cases_by_country data from Parquet format
-df_cases = spark.read.parquet("s3://your-bucket-name/path/to/total-cases-by-country.parquet")
+df_cases = spark.read.parquet("s3://covid19/2023/output/total-cases-by-country.parquet")
 
 # Create a temporary view for querying
 df_cases.createOrReplaceTempView("total_cases_by_country")
